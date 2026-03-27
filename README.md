@@ -1,3 +1,17 @@
+# Coffee Search
+
+Aplikacja do wyszukiwania kawiarni speciality w Poznaniu.
+
+## Tech stack
+- Vue.js
+- Next.js
+- Strapi
+- PostgreSQL
+
+## Funkcjonalności
+- filtrowanie kawiarni
+- mapa lokalizacji
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
