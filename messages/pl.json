@@ -1,0 +1,13 @@
+{
+  "HomePage": {
+    "title": "Kawiarnie Poznań",
+    "searchPlaceholder": "Szukaj kawiarni...",
+    "noResults": "Nie znaleziono kawiarni o takiej nazwie.",
+    "viewOnWebsite": "Zobacz stronę",
+    "pagination": {
+      "previous": "Poprzednia",
+      "next": "Następna",
+      "status": "Strona {currentPage} z {pageCount}"
+    }
+  }
+}

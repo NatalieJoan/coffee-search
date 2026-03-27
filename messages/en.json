@@ -1,0 +1,13 @@
+{
+  "HomePage": {
+    "title": "Coffee Poznań",
+    "searchPlaceholder": "Search for a cafe...",
+    "noResults": "No cafes found with that name.",
+    "viewOnWebsite": "View on website",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Forward",
+      "status": "Page {currentPage} from {pageCount}"
+    }
+  }
+}
