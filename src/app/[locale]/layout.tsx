@@ -3,32 +3,27 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Providers } from '@/app/providers';
 import { routing } from '@/i18n/routing';
-import React from "react";
-import "../globals.css";
+import React from 'react';
+import '../globals.css';
 
 export default async function LocaleLayout({
-   children,
-   params
+  children,
+  params,
 }: {
-    children: React.ReactNode;
-    params: Promise<{locale: string}>;
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }) {
-    const { locale } = await params;
-    if (!routing.locales.includes(locale as any)) {
-        notFound();
-    }
+  const { locale } = await params;
 
-    const messages = await getMessages({locale});
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
 
-    return (
-        <html lang={locale} suppressHydrationWarning>
-        <body>
-        <NextIntlClientProvider messages={messages} locale={locale}>
-            <Providers>
-                {children}
-            </Providers>
-        </NextIntlClientProvider>
-        </body>
-        </html>
-    );
+  const messages = await getMessages({ locale });
+
+  return (
+    <NextIntlClientProvider messages={messages} locale={locale}>
+      <Providers>{children}</Providers>
+    </NextIntlClientProvider>
+  );
 }

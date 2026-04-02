@@ -1,0 +1,20 @@
+{
+  "HomePage": {
+    "title": "Kawiarnie Poznań",
+    "searchPlaceholder": "Szukaj kawiarni...",
+    "noResults": "Nie znaleziono kawiarni o takiej nazwie.",
+    "viewOnWebsite": "Zobacz stronę",
+    "brewMethods": "Metody parzenia",
+    "pagination": {
+      "previous": "Poprzednia",
+      "next": "Następna",
+      "status": "Strona {currentPage} z {pageCount}"
+    }
+  },
+  "Sort": {
+    "nameAsc": "Nazwa A-Z",
+    "nameDesc": "Nazwa Z-A",
+    "createdAtAsc": "Najnowsze",
+    "createdAtDesc": "Najstarsze"
+  }
+}
