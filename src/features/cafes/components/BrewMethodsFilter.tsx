@@ -1,9 +1,8 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { BrewMethodsFilterProps } from './BrewMethodsFilter.types';
-import { toggleSelectedMethod } from './BrewMethodsFilter.utils';
-import { cn } from '@/features/cafes/lib/utils';
+import { BrewMethodsFilterProps } from '@/features/cafes/types/props.types';
+import { cn, toggleSelectedMethod } from '@/features/cafes/lib/utils';
 
 export default function BrewMethodsFilter({
   methods,

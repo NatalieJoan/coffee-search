@@ -1,11 +1,8 @@
 import Image from 'next/image';
-import { Cafe } from '@/features/cafes/types/cafe.types';
+import { CafeCardProps } from '@/features/cafes/types/props.types';
 import { STRAPI_URL } from '@/shared/config/env';
 import { useTranslations } from 'next-intl';
 
-interface CafeCardProps {
-  cafe: Cafe;
-}
 export function CafeCard({ cafe }: CafeCardProps) {
   const t = useTranslations('HomePage');
 

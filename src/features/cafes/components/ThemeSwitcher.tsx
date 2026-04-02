@@ -34,16 +34,18 @@ export function ThemeSwitcher() {
         ].join(' ')}
       >
         <SunIcon
-          className={`absolute inset-0 m-auto h-5 w-5
-                        transition-all duration-300
-                        ${isDark ? 'opacity-0 scale-50 rotate-90' : 'opacity-100 scale-100 rotate-0'}
-                    `}
+          className={`
+            absolute inset-0 m-auto h-5 w-5
+            transition-all duration-300
+            ${isDark ? 'opacity-0 scale-50 rotate-90' : 'opacity-100 scale-100 rotate-0'}
+          `}
         />
         <MoonIcon
-          className={`absolute inset-0 m-auto h-5 w-5
-                        transition-all duration-300
-                        ${isDark ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'}
-                    `}
+          className={`
+            absolute inset-0 m-auto h-5 w-5
+            transition-all duration-300
+            ${isDark ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'}
+          `}
         />
       </span>
     </button>

@@ -1,12 +1,8 @@
-"use client";
+'use client';
 
-import type { SortOption } from '@/features/cafes/types/filter.types';
-import {useTranslations} from "next-intl";
-
-interface CafesSortProps {
-  value: SortOption;
-  onChange: (value: SortOption) => void;
-}
+import type { SortOptions } from '@/features/cafes/types/options.types';
+import type { CafesSortProps } from '@/features/cafes/types/props.types';
+import { useTranslations } from 'next-intl';
 
 export default function CafesSort({ value, onChange }: CafesSortProps) {
   const t = useTranslations('Sort');
@@ -15,9 +11,9 @@ export default function CafesSort({ value, onChange }: CafesSortProps) {
     <select
       value={`${value.field}:${value.order}`}
       onChange={(e) => {
-        const [field, order] = e.target.value.split(":") as [
-          SortOption["field"],
-          SortOption["order"],
+        const [field, order] = e.target.value.split(':') as [
+          SortOptions['field'],
+          SortOptions['order'],
         ];
 
         onChange({ field, order });

@@ -10,8 +10,8 @@ import { SearchBar } from '@/features/cafes/components/SearchBar';
 import LocaleSwitcher from '@/features/cafes/components/LocaleSwitcher';
 import { getBrewMethods } from '@/features/cafes/api/getBrewMethods';
 import BrewMethodsFilter from '@/features/cafes/components/BrewMethodsFilter';
-import {SortOption} from "@/features/cafes/types/filter.types";
-import CafesSort from "@/features/cafes/components/CafeSort";
+import { SortOptions } from '@/features/cafes/types/options.types';
+import CafesSort from '@/features/cafes/components/CafeSort';
 
 export default function Home() {
   const t = useTranslations('HomePage');
@@ -22,18 +22,21 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
-  const [sort, setSort] = useState<SortOption>({ field: 'name', order: 'asc' });
+  const [sort, setSort] = useState<SortOptions>({
+    field: 'name',
+    order: 'asc',
+  });
 
-const loadCafes = async ({
-   page = currentPage,
-   searchTermParam = searchTerm,
-   selectedMethodsParam = selectedMethods,
-   sortParam = sort,
-}: {
+  const loadCafes = async ({
+    page = currentPage,
+    searchTermParam = searchTerm,
+    selectedMethodsParam = selectedMethods,
+    sortParam = sort,
+  }: {
     page?: number;
     searchTermParam?: string;
     selectedMethodsParam?: string[];
-    sortParam?: SortOption;
+    sortParam?: SortOptions;
   } = {}) => {
     try {
       const data = await getCafes({
