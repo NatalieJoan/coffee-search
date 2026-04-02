@@ -5,6 +5,8 @@ export interface Cafe {
   image: any;
   brew_methods: BrewMethod[];
   link: string;
+  latitude: number | null;
+  longitude: number | null;
 }
 
 export interface BrewMethod {

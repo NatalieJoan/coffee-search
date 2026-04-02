@@ -16,5 +16,11 @@
     "nameDesc": "Nazwa Z-A",
     "createdAtAsc": "Najnowsze",
     "createdAtDesc": "Najstarsze"
+  },
+  "CafesMap": {
+    "title": "Mapa kawiarni",
+    "showMap": "Pokaż mapę",
+    "hideMap": "Ukryj mapę",
+    "close": "Zamknij"
   }
 }

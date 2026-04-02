@@ -15,3 +15,7 @@ export interface CafesSortProps {
 export interface CafeCardProps {
   cafe: Cafe;
 }
+
+export interface CafesMapProps {
+  cafes: Cafe[];
+}

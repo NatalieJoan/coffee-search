@@ -16,5 +16,11 @@
     "nameDesc": "Name Z-A",
     "createdAtAsc": "Latest",
     "createdAtDesc": "Oldest"
+  },
+  "CafesMap": {
+    "title": "Cafes Map",
+    "showMap": "Show map",
+    "hideMap": "Hide map",
+    "close": "Close"
   }
 }

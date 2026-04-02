@@ -12,6 +12,7 @@ import { getBrewMethods } from '@/features/cafes/api/getBrewMethods';
 import BrewMethodsFilter from '@/features/cafes/components/BrewMethodsFilter';
 import { SortOptions } from '@/features/cafes/types/options.types';
 import CafesSort from '@/features/cafes/components/CafeSort';
+import { CafesMapPanel } from '@/features/cafes/components/CafesMapPanel';
 
 export default function Home() {
   const t = useTranslations('HomePage');
@@ -87,6 +88,7 @@ export default function Home() {
         <div className="flex items-center gap-4">
           <ThemeSwitcher />
           <LocaleSwitcher />
+          <CafesMapPanel cafes={cafes} />
         </div>
       </div>
       <SearchBar value={searchTerm} onChange={setSearchTerm} />
