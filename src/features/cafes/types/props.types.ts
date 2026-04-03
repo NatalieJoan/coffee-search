@@ -19,3 +19,9 @@ export interface CafeCardProps {
 export interface CafesMapProps {
   cafes: Cafe[];
 }
+
+export interface CafesMapPanelProps {
+  cafes: CafesMapProps['cafes'];
+  isOpen: boolean;
+  onClose: () => void;
+}

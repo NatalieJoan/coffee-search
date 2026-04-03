@@ -16,6 +16,7 @@ import { CafesMapPanel } from '@/features/cafes/components/CafesMapPanel';
 
 export default function Home() {
   const t = useTranslations('HomePage');
+  const m = useTranslations('CafesMap');
 
   const [cafes, setCafes] = useState<Cafe[]>([]);
   const [brewMethods, setBrewMethods] = useState<BrewMethod[]>([]);
@@ -23,6 +24,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
+  const [isMapOpen, setIsMapOpen] = useState(false);
   const [sort, setSort] = useState<SortOptions>({
     field: 'name',
     order: 'asc',
@@ -82,33 +84,60 @@ export default function Home() {
   }, [searchTerm, selectedMethods, sort]);
 
   return (
-    <div className="p-6">
-      <div className="flex items-center justify-between mb-8">
-        <h1 className="text-6xl font-bold">{t('title')}</h1>
-        <div className="flex items-center gap-4">
-          <ThemeSwitcher />
-          <LocaleSwitcher />
-          <CafesMapPanel cafes={cafes} />
+    <div className="flex min-h-screen">
+      <main className="min-w-0 flex-1 p-6 transition-all duration-300">
+        <div className="mb-8 flex items-center justify-between">
+          <h1 className="text-6xl font-bold">{t('title')}</h1>
+
+          <div className="flex items-center gap-4">
+            <ThemeSwitcher />
+            <LocaleSwitcher />
+
+            <button
+              type="button"
+              onClick={() => setIsMapOpen((prev) => !prev)}
+              className="rounded-full border px-4 py-2 shadow"
+            >
+              {isMapOpen ? m('hideMap') : m('showMap')}
+            </button>
+          </div>
         </div>
-      </div>
-      <SearchBar value={searchTerm} onChange={setSearchTerm} />
-      <div className="flex justify-between items-center mb-2">
-        <BrewMethodsFilter
-          methods={brewMethods}
-          selectedMethods={selectedMethods}
-          onChange={setSelectedMethods}
+
+        <SearchBar value={searchTerm} onChange={setSearchTerm} />
+
+        <div className="mb-2 flex items-center justify-between">
+          <BrewMethodsFilter
+            methods={brewMethods}
+            selectedMethods={selectedMethods}
+            onChange={setSelectedMethods}
+          />
+          <CafesSort value={sort} onChange={setSort} />
+        </div>
+
+        <div
+          className={[
+            'grid gap-6 transition-all duration-300',
+            isMapOpen
+              ? 'grid-cols-1 xl:grid-cols-2'
+              : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+          ].join(' ')}
+        >
+          {cafes.map((cafe) => (
+            <CafeCard key={cafe.id} cafe={cafe} />
+          ))}
+        </div>
+
+        <Pagination
+          currentPage={currentPage}
+          pageCount={pageCount}
+          onPageChange={setCurrentPage}
         />
-        <CafesSort value={sort} onChange={setSort} />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cafes.map((cafe) => (
-          <CafeCard key={cafe.id} cafe={cafe} />
-        ))}
-      </div>
-      <Pagination
-        currentPage={currentPage}
-        pageCount={pageCount}
-        onPageChange={setCurrentPage}
+      </main>
+
+      <CafesMapPanel
+        cafes={cafes}
+        isOpen={isMapOpen}
+        onClose={() => setIsMapOpen(false)}
       />
     </div>
   );
