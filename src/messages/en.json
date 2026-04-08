@@ -1,10 +1,12 @@
 {
   "HomePage": {
-    "title": "Coffee Poznań",
+    "title": "Coffee Poznan",
     "searchPlaceholder": "Search for a cafe...",
     "noResults": "No cafes found with that name.",
     "viewOnWebsite": "View on website",
     "brewMethods": "Brew Methods",
+    "resultsCount": "Found {count} cafes",
+    "noFilterResults": "No cafes found",
     "pagination": {
       "previous": "Previous",
       "next": "Forward",

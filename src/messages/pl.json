@@ -5,6 +5,8 @@
     "noResults": "Nie znaleziono kawiarni o takiej nazwie.",
     "viewOnWebsite": "Zobacz stronę",
     "brewMethods": "Metody parzenia",
+    "resultsCount": "Znaleziono {count} kawiarni",
+    "noFilterResults": "Nie znaleziono kawiarni",
     "pagination": {
       "previous": "Poprzednia",
       "next": "Następna",

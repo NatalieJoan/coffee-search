@@ -11,11 +11,11 @@ export default function BrewMethodsFilter({
 }: BrewMethodsFilterProps) {
   const t = useTranslations('HomePage');
   const baseClasses =
-    'flex items-center gap-2 px-3 py-2 rounded-full border cursor-pointer transition';
+    'flex items-center bg-[var(--accent)] text-[var(--accent-foreground)] px-4 py-2 rounded-xl border cursor-pointer transition hover:opacity-90';
   const selectedClasses =
-    'bg-black text-white border-black hover:bg-black/90 dark:bg-white dark:text-black dark:border-white dark:hover:bg-white/90';
+    'bg-black text-white bg-[var(--accent)] text-[var(--accent-foreground)] border-[var(--accent)]';
   const unselectedClasses =
-    'bg-white text-black border-gray-300 hover:bg-gray-100 dark:bg-transparent dark:text-white dark:border-gray-600 dark:hover:bg-gray-800';
+    'bg-[var(--card)] text-[var(--foreground)] border-[var(--border)] hover:bg-black/5 dark:hover:bg-white/5';
 
   const handleToggleMethod = (slug: string) => {
     onChange(toggleSelectedMethod(selectedMethods, slug));
@@ -23,7 +23,9 @@ export default function BrewMethodsFilter({
 
   return (
     <div className="mb-6">
-      <h2 className="mb-3 text-lg font-semibold">{t('brewMethods')}</h2>
+      <h2 className="mb-3 text-lg font-semibold tracking-tight">
+        {t('brewMethods')}
+      </h2>
 
       <div className="flex flex-wrap gap-3">
         {methods.map((method) => {

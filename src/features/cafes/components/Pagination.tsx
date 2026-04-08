@@ -12,6 +12,8 @@ export function Pagination({
   onPageChange,
 }: PaginationProps) {
   const t = useTranslations('HomePage');
+  const BaseClass =
+    'px-3 py-2 bg-accent rounded-lg text-accent-foreground disabled:opacity-50 border border-[var(--border)] hover:bg-gray-500 transition-colors dark:border-gray-700';
 
   if (pageCount <= 1) return null;
 
@@ -20,19 +22,19 @@ export function Pagination({
       <button
         onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
-        className="px-4 py-2 bg-card rounded-lg disabled:opacity-50 hover:bg-gray-500 transition-colors border border-gray-200 dark:border-gray-700"
+        className={BaseClass}
       >
         {t('pagination.previous')}
       </button>
 
-      <span className="text-muted font-medium">
+      <span className="text-muted text-sm">
         {t('pagination.status', { currentPage, pageCount })}
       </span>
 
       <button
         onClick={() => onPageChange(Math.min(currentPage + 1, pageCount))}
         disabled={currentPage === pageCount}
-        className="px-4 py-2 bg-card rounded-lg disabled:opacity-50 hover:bg-gray-500 transition-colors border border-gray-200 dark:border-gray-700"
+        className={BaseClass}
       >
         {t('pagination.next')}
       </button>

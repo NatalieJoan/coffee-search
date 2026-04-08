@@ -24,7 +24,7 @@ export function CafesMapPanel({ cafes, isOpen, onClose }: CafesMapPanelProps) {
     >
       <div className="flex h-full flex-col">
         <div className="flex h-16 shrink-0 items-center justify-between border-b px-4">
-          <h2 className="text-lg font-semibold">{t('title')}</h2>
+          <h2 className="text-lg font-semibold tracking-tight">{t('title')}</h2>
           <button
             type="button"
             onClick={onClose}

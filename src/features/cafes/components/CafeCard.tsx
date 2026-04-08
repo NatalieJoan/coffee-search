@@ -9,7 +9,7 @@ export function CafeCard({ cafe }: CafeCardProps) {
   return (
     <article
       key={cafe.id}
-      className="bg-card text-card-foreground shadow-md rounded-lg overflow-hidden"
+      className="rounded-lg text-card-foreground border border-border bg-card p-5 transition hover:-translate-y-0.5 hover:shadow-md"
     >
       <Image
         className="w-full h-48 object-cover"
@@ -24,9 +24,7 @@ export function CafeCard({ cafe }: CafeCardProps) {
         priority
       />
       <div className="p-4">
-        <h3 className="text-lg font-bold mb-2 text-shadow-white">
-          {cafe.name}
-        </h3>
+        <h3 className="text-lg font-semibold mb-2">{cafe.name}</h3>
         <p className="text-muted mb-4">{cafe.address}</p>
         <div className="flex gap-2 mb-4">
           {cafe.brew_methods?.map((method) => (

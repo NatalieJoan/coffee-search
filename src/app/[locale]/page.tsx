@@ -25,6 +25,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [isMapOpen, setIsMapOpen] = useState(false);
+  const [totalResults, setTotalResults] = useState(0);
   const [sort, setSort] = useState<SortOptions>({
     field: 'name',
     order: 'asc',
@@ -51,6 +52,7 @@ export default function Home() {
       });
       setCafes(data.data);
       setPageCount(data.meta.pagination.pageCount);
+      setTotalResults(data.meta.pagination.total);
     } catch (error) {
       console.error(error);
     }
@@ -87,7 +89,9 @@ export default function Home() {
     <div className="flex min-h-screen">
       <main className="min-w-0 flex-1 p-6 transition-all duration-300">
         <div className="mb-8 flex items-center justify-between">
-          <h1 className="text-6xl font-bold">{t('title')}</h1>
+          <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+            {t('title')}
+          </h1>
 
           <div className="flex items-center gap-4">
             <ThemeSwitcher />
@@ -96,7 +100,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setIsMapOpen((prev) => !prev)}
-              className="rounded-full border px-4 py-2 shadow"
+              className="rounded-xl bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring"
             >
               {isMapOpen ? m('hideMap') : m('showMap')}
             </button>
@@ -105,13 +109,24 @@ export default function Home() {
 
         <SearchBar value={searchTerm} onChange={setSearchTerm} />
 
-        <div className="mb-2 flex items-center justify-between">
+        <div className="mb-4">
           <BrewMethodsFilter
             methods={brewMethods}
             selectedMethods={selectedMethods}
             onChange={setSelectedMethods}
           />
-          <CafesSort value={sort} onChange={setSort} />
+
+          <div className="mt-2 flex items-center justify-between">
+            {selectedMethods.length > 0 ? (
+              <p className="text-sm text-gray-500">
+                {t('resultsCount', { count: totalResults })}
+              </p>
+            ) : (
+              <div />
+            )}
+
+            <CafesSort value={sort} onChange={setSort} />
+          </div>
         </div>
 
         <div

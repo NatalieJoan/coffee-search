@@ -62,6 +62,15 @@ export default function CafesMap({ cafes }: CafesMapProps) {
               {cafe.address && (
                 <div className="mt-1 text-sm text-gray-600">{cafe.address}</div>
               )}
+              <div className="flex mb-4">
+                {cafe.brew_methods?.map((method) => (
+                  <div key={method.id} title={method.name}>
+                    <span className="text-xs border p-1 rounded-2xl">
+                      {method.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </Popup>
         </Marker>

@@ -17,21 +17,29 @@ export default function LocaleSwitcher() {
   };
 
   return (
-    <div className={`"flex gap-2" ${isPending ? 'opacity-50' : 'opacity-100'}`}>
-      {['en', 'pl'].map((l) => (
-        <button
-          key={l}
-          disabled={isPending}
-          onClick={() => onSelectChange(l)}
-          className={`px-3 py-1 rounded-md transition-all ${
-            locale === l
-              ? 'bg-blue-600 text-white font-bold'
-              : 'bg-card text-card-foreground hover:bg-gray-300 dark:hover:bg-gray-600'
-          }`}
-        >
-          {l.toUpperCase()}
-        </button>
-      ))}
+    <div
+      className={`flex gap-1 rounded-xl border border-border bg-card p-1 transition ${
+        isPending ? 'opacity-50' : 'opacity-100'
+      }`}
+    >
+      {['en', 'pl'].map((l) => {
+        const isActive = locale === l;
+
+        return (
+          <button
+            key={l}
+            disabled={isPending}
+            onClick={() => onSelectChange(l)}
+            className={`rounded-lg px-3 py-1.5 text-sm font-medium transition ${
+              isActive
+                ? 'bg-accent text-accent-foreground'
+                : 'text-foreground hover:bg-black/5 dark:hover:bg-white/5'
+            }`}
+          >
+            {l.toUpperCase()}
+          </button>
+        );
+      })}
     </div>
   );
 }
